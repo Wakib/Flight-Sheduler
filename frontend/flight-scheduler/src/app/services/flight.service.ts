@@ -12,8 +12,35 @@ export class FlightService {
 
   constructor(private http: HttpClient) { }
 
+  //GET a Single Flight
+  getFlight(id: number): Observable<any>{
+    return this.http.get(this.endpoint + id);
+  }
+
   //GET All Flights
   getAllFlights(): Observable<any>{
-    return this.http.get(this.endpoint)
+    return this.http.get(this.endpoint);
   }
+
+  //POST - Add a new flight
+  flightCreate(flight: Flight): Observable<object>{
+    return this.http.post(this.endpoint,flight);
+  }
+
+  //PUT Update
+  updateFlight(id: number, payload: any): Observable<object>{
+    return this.http.put(this.endpoint + id, payload);
+  }
+
+  //DELETE A Flight
+  deleteFlight(id: number): Observable<any>{
+    return this.http.delete(this.endpoint + id);
+  }
+
+  //DELETE All Flights
+  deleteAllFlights(): Observable<any>{
+    return this.http.delete(this.endpoint);
+  }
+
+
 }

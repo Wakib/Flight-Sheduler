@@ -63,5 +63,5 @@ def flight_details(request, pk):
 
    #Delete one record
    if request.method == 'DELETE':
-      schedule.delete() 
-      return HttpResponse(status=status.HTTP_204_NO_CONTENTIN) 
+      schedule.delete()
+      return HttpResponse(status=status.HTTP_204_NO_CONTENT)

@@ -11,11 +11,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class ScheduleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Schedule
-        fields = ('airline',
-                  'flight_no',
-                  'trip_type',
-                  'departure_airport',
-                  'arrival_airport',
-                  'departure_date',
-                  'return_date'
+        fields = (  'id',
+                    'airline',
+                    'flight_no',
+                    'trip_type',
+                    'departure_airport',
+                    'arrival_airport',
+                    'departure_date',
+                    'return_date'
         )

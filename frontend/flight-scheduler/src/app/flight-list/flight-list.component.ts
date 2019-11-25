@@ -12,6 +12,7 @@ import { FlightService } from "../services/flight.service";
 export class FlightListComponent implements OnInit {
 
   flights: Observable<Flight[]>;
+  success: boolean = false;
 
   constructor(private flightService: FlightService) { }
 
@@ -23,12 +24,26 @@ export class FlightListComponent implements OnInit {
     this.flights = this.flightService.getAllFlights();
   }
 
-  deleteFlights(id){
-    
+  deleteFlight(id){
+    this.flightService.deleteFlight(id)
+        .subscribe(
+          data => {
+            this.success = true;
+            this.loadFlightsData();
+          },
+          error => console.log("Failed:  " + error)
+        )
   }
 
   deleteAllFlights(){
-
+    this.flightService.deleteAllFlights()
+        .subscribe(
+          data => {
+            this.success = true;
+            this.loadFlightsData();
+          },
+          error => console.log("Failed:  " + error)
+        )
   }
 
 }
