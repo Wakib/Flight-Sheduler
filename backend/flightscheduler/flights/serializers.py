@@ -5,14 +5,12 @@ from flights.models import Schedule
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'username', 'email')
-
+        fields = ('url','username','email')
 
 class ScheduleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Schedule
-        fields = (  'id',
-                    'airline',
+        fields = (  'id','airline',
                     'flight_no',
                     'trip_type',
                     'departure_airport',

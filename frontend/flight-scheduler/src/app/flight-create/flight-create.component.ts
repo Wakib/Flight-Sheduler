@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Flight } from '../models/flight';
-import { FlightService } from '../services/flight.service';
-
+import { Flight } from "../models/flight";
+import { FlightService } from "../services/flight.service";
 
 @Component({
   selector: 'app-flight-create',
@@ -19,18 +18,18 @@ export class FlightCreateComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit() {
     this.saveFlight();
   }
 
-  saveFlight(){
+  saveFlight() {
     this.flightService.flightCreate(this.flight)
       .subscribe(
         data => {
           this.success = true;
-          console.log("New Flight Added!")
+          console.log("New flight added!!");
         },
-        error => console.log("Sorry, can not save! " + error)
+        error => console.log("Sorry, cannot save! " + error)
       )
   }
 

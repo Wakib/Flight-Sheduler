@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, Observer } from "rxjs";
 import { Flight } from "../models/flight";
 
 @Injectable({
@@ -12,14 +12,14 @@ export class FlightService {
 
   constructor(private http: HttpClient) { }
 
-  //GET a Single Flight
+  //GET A SINGLE FLIGHT
   getFlight(id: number): Observable<any>{
     return this.http.get(this.endpoint + id);
   }
 
   //GET All Flights
   getAllFlights(): Observable<any>{
-    return this.http.get(this.endpoint);
+    return this.http.get(this.endpoint)
   }
 
   //POST - Add a new flight
@@ -27,20 +27,19 @@ export class FlightService {
     return this.http.post(this.endpoint,flight);
   }
 
-  //PUT Update
+  //PUT - Update
   updateFlight(id: number, payload: any): Observable<object>{
     return this.http.put(this.endpoint + id, payload);
   }
 
-  //DELETE A Flight
+  //DELETE A FLIGHT
   deleteFlight(id: number): Observable<any>{
     return this.http.delete(this.endpoint + id);
   }
 
-  //DELETE All Flights
+  //DELETE ALL FLIGHTS
   deleteAllFlights(): Observable<any>{
     return this.http.delete(this.endpoint);
   }
-
 
 }
